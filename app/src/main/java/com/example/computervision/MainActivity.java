@@ -88,6 +88,32 @@ public class MainActivity
                 .addOnSuccessListener(this)
                 .addOnFailureListener(this);
     }
+    @Override
+    public void onFailure(@NonNull Exception e) {
+        txtResults.setText("Error al procesar imagen");
+    }
+
+    @Override
+    public void onSuccess(Text text) {
+        List<Text.TextBlock> blocks = text.getTextBlocks();
+        String resultados="";
+        if (blocks.size() == 0) {
+            resultados = "No hay Texto";
+        }else{
+            for (int i = 0; i < blocks.size(); i++) {
+                List<Text.Line> lines = blocks.get(i).getLines();
+                for (int j = 0; j < lines.size(); j++) {
+                    List<Text.Element> elements = lines.get(j).getElements();
+                    for (int k = 0; k < elements.size(); k++) {
+                        resultados = resultados + elements.get(k).getText() + " ";
+                    }
+                }
+            }
+            resultados= resultados + "\n";
+        }
+        txtResults.setText(resultados);
+    }
+
     public void Rostrosfx(View  v) {
         InputImage image= InputImage.fromBitmap(mSelectedImage, 0);
         FaceDetectorOptions options=
@@ -123,31 +149,7 @@ public class MainActivity
     }
 
 
-    @Override
-    public void onFailure(@NonNull Exception e) {
-        txtResults.setText("Error al procesar imagen");
-    }
 
-    @Override
-    public void onSuccess(Text text) {
-        List<Text.TextBlock> blocks = text.getTextBlocks();
-        String resultados="";
-        if (blocks.size() == 0) {
-            resultados = "No hay Texto";
-        }else{
-            for (int i = 0; i < blocks.size(); i++) {
-                List<Text.Line> lines = blocks.get(i).getLines();
-                for (int j = 0; j < lines.size(); j++) {
-                    List<Text.Element> elements = lines.get(j).getElements();
-                    for (int k = 0; k < elements.size(); k++) {
-                        resultados = resultados + elements.get(k).getText() + " ";
-                    }
-                }
-            }
-            resultados= resultados + "\n";
-        }
-        txtResults.setText(resultados);
-    }
 
     public void Labeling(View  v) {
         InputImage image= InputImage.fromBitmap(mSelectedImage, 0);
