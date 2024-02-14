@@ -20,8 +20,8 @@
 
     <Button
         android:id="@+id/btGallery"
-        android:layout_width="165dp"
-        android:layout_height="0dp"
+        android:layout_width="110dp"
+        android:layout_height="36dp"
         android:layout_margin="5dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
@@ -32,14 +32,14 @@
 
     <Button
         android:id="@+id/btCamera"
-        android:layout_width="165dp"
-        android:layout_height="0dp"
+        android:layout_width="114dp"
+        android:layout_height="42dp"
         android:layout_margin="5dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:onClick="abrirCamera"
         android:text="CÁMARA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toEndOf="@+id/btGallery"
         app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
 
@@ -72,35 +72,63 @@
 
     <Button
         android:id="@+id/btText"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_width="124dp"
+        android:layout_height="48dp"
         android:layout_margin="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="20dp"
         android:onClick="OCRfx"
         android:text="OCR"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/btFace" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/btFace"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_width="108dp"
+        android:layout_height="47dp"
         android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
         android:onClick="Rostrosfx"
         android:text="Rostros"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/btText"
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="168dp"
+        android:layout_width="122dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
         android:onClick="Labeling"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Que es?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btFace"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toEndOf="@+id/btText"
         app:layout_constraintTop_toBottomOf="@+id/txtresults" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="75dp"
+        android:layout_height="42dp"
+        android:onClick="PersonalizedModel"
+        android:text="Flor"
+        app:layout_constraintBottom_toTopOf="@+id/image_view"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btGallery" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="91dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="2dp"
+        android:onClick="PersonalizedModelRostro"
+        android:text="Rostro"
+        app:layout_constraintBottom_toTopOf="@+id/image_view"
+        app:layout_constraintEnd_toStartOf="@+id/btCamera"
+        app:layout_constraintStart_toEndOf="@+id/button2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
